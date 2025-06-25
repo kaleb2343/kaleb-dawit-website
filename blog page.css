@@ -1,0 +1,362 @@
+/* Define color palette variables */
+:root {
+    --primary-blue: #007bff; /* Vibrant blue */
+    --light-blue: #66b3ff;    /* Lighter blue for accents/gradients */
+    --dark-blue-shadow: #0056b3; /* Darker blue for shadows/focus */
+
+    /* Dark Theme Colors (Default) */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg-color: #2a2a2a;
+    --header-bg-color: #1a1a1a; /* Used for resume header, but keeping here for consistency */
+    --border-color: #555555;
+    --inactive-dot-color: #555; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #000000; /* Black for dark theme footer */
+    --footer-text-color: #888888; /* Gray-500 equivalent */
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --bg-color: #f0f0f0;
+    --text-color: #000000; /* Changed to pure black for light theme */
+    --card-bg-color: #ffffff;
+    --header-bg-color: #e8e8e8; /* Used for resume header, but keeping here for consistency */
+    --border-color: #cccccc;
+    --inactive-dot-color: #aaaaaa; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #ffffff; /* White for light theme footer */
+    --footer-text-color: #333333; /* Dark text for light theme footer */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+.navbar-link {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to navbar links */
+    color: var(--text-color); /* Inherit from theme */
+}
+body.light-theme .navbar-link {
+    color: #000000; /* Ensure black in light mode */
+}
+.navbar-link:hover {
+    color: var(--primary-blue) !important; /* Hover color to blue, added !important */
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60%;
+    height: 4px;
+    background-color: var(--primary-blue); /* Blue underline */
+    border-radius: 2px;
+}
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--light-blue);
+}
+.card {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+input, textarea {
+    background-color: var(--card-bg-color); /* Use variable */
+    border: 1px solid var(--border-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.4); /* Blue focus shadow */
+}
+.social-icon {
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--primary-blue);
+}
+
+/* Blog specific styles */
+.blog-section-heading {
+    font-size: 2.5rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: var(--primary-blue); /* Blue for section titles */
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.blog-section-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+@media (min-width: 768px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.blog-post-card {
+    background-color: var(--card-bg-color);
+    border-radius: 1rem; /* Slightly more rounded for modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Softer initial shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease, background-color 0.3s ease; /* Ensure hover and theme transition */
+    height: 100%; /* Ensure cards have consistent height */
+}
+/* Re-added hover effects for the card itself */
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Indicate clickability */
+}
+
+/* Removed the blog-post-card-link class as it's no longer needed with JS handling */
+/* .blog-post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    height: 100%;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+.blog-post-card-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+} */
+
+
+.blog-post-icon-container {
+    width: 100%;
+    height: 100px; /* Adjusted height for icons and smaller images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background for icons */
+    margin-bottom: 1rem;
+    overflow: hidden; /* Explicitly hide overflow for zoom effect */
+}
+.blog-post-icon-container img {
+    width: 60px; /* Icon size */
+    height: 60px;
+    object-fit: contain; /* Ensure image fits within the container */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth hover */
+}
+/* Style for the icon in the "My Writings" section */
+.blog-post-icon-container .fa-book {
+    font-size: 3rem; /* Adjust size of the book icon */
+    color: var(--primary-blue); /* Color of the book icon */
+}
+
+.blog-post-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.blog-post-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+.blog-post-content p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.4;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+.blog-post-source {
+    font-size: 0.8rem;
+    color: var(--footer-text-color);
+    margin-top: auto; /* Pushes source to bottom */
+}
+.blog-post-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue); /* Filled blue by default */
+    border: 1px solid var(--primary-blue); /* Consistent border */
+    color: #1a1a1a; /* Dark text for the filled button */
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transform/shadow for hover */
+    margin-top: auto; /* Pushes button to bottom */
+    align-self: flex-start; /* Align button to start within flex column */
+    text-decoration: none; /* Ensure no underline */
+}
+.blog-post-button:hover {
+    background-color: var(--light-blue); /* Lighter blue on hover */
+    color: #1a1a1a; /* Keep text dark on hover */
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Use variable */
+    margin: auto;
+    padding: 20px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+.close-button {
+    color: var(--text-color); /* Use variable */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Theme Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.3rem; /* Small icon size */
+    color: var(--text-color); /* Icon color based on theme */
+    transition: color 0.3s ease;
+    /* Remove absolute positioning for mobile, let flexbox handle it */
+    position: static; /* or remove this property */
+    right: initial;
+    top: initial;
+    transform: initial;
+    z-index: initial;
+}
+@media (min-width: 768px) {
+    #theme-toggle {
+        /* Reapply absolute positioning for larger screens if desired, or adjust flex behavior */
+        position: absolute;
+        right: 10rem; /* Adjust for larger screens */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 60;
+    }
+}
+
+
+/* Specific overrides for elements that had hardcoded Tailwind text/background colors */
+/* These ensure they use the CSS variables for theme switching */
+#blog h1,
+#blog h2,
+#blog p:not([style*="color: var(--primary-blue)"]) {
+    color: var(--text-color);
+    transition: color 0.3s ease; /* Ensure smooth transition */
+}
+
+#blog {
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Footer specific styles */
+footer {
+    background-color: var(--footer-bg-color); /* Use variable */
+    color: var(--footer-text-color); /* Use variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+footer .social-icon {
+    margin: 0 0.75rem; /* 0.75rem horizontal margin */
+}
+
+/* Additional CSS for mobile-specific layout */
+@media (max-width: 767px) { /* Apply these styles only on screens smaller than 768px (md breakpoint) */
+    /* Mobile Hamburger Icon Color */
+    #mobile-menu-button {
+        color: var(--primary-blue); /* Set the hamburger icon color to blue */
+    }
+
+    /* Mobile Menu Links Hover Color */
+    #mobile-menu a {
+        /* Ensure the default text color of mobile menu links is visible before hover */
+        color: var(--text-color);
+        transition: color 0.3s ease; /* Add transition for smooth hover effect */
+    }
+
+    /* FIX: Ensure mobile menu text is white in light theme */
+    body.light-theme #mobile-menu a {
+        color: #FFFFFF !important; /* Force white text for light theme on black background */
+    }
+
+    #mobile-menu a:hover {
+        color: var(--primary-blue) !important; /* Set the hover color for mobile menu links to blue */
+    }
+
+    .navbar-link {
+        color: var(--text-color) !important; /* Ensure navbar links inherit theme color on mobile */
+    }
+
+    /* Adjust navbar container for mobile */
+    .fixed.w-full.bg-opacity-0.z-50.py-4.shadow-lg.top-0 {
+        background-color: var(--bg-color); /* Add a background to the navbar on mobile */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add a subtle shadow */
+    }
+}

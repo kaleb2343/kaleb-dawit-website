@@ -1,0 +1,365 @@
+/* Define color palette variables */
+:root {
+    --primary-blue: #007bff; /* Vibrant blue */
+    --light-blue: #66b3ff;    /* Lighter blue for accents/gradients */
+    --dark-blue-shadow: #0056b3; /* Darker blue for shadows/focus */
+
+    /* Dark Theme Colors (Default) */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg-color: #2a2a2a;
+    --header-bg-color: #1a1a1a;
+    --border-color: #444;
+    --inactive-dot-color: #555;
+    --footer-bg-color: #000000; /* Black for dark theme footer */
+    --footer-text-color: #888888; /* Gray-500 equivalent */
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --bg-color: #f0f0f0;
+    --text-color: #333333;
+    --card-bg-color: #ffffff;
+    --header-bg-color: #e8e8e8;
+    --border-color: #cccccc;
+    --inactive-dot-color: #aaaaaa;
+    --footer-bg-color: #ffffff; /* White for light theme footer */
+    --footer-text-color: #333333; /* Dark text for light theme footer */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+.navbar-link {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to navbar links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+.navbar-link:hover {
+    color: var(--primary-blue); /* Changed hover color to blue */
+}
+/* Light Theme Specific Navbar Link Color */
+body.light-theme .navbar-link {
+    color: #000000; /* Make text black in light theme */
+}
+/* Light Theme Specific Navbar Link Hover Color */
+body.light-theme .navbar-link:hover {
+    color: var(--primary-blue); /* Make text blue on hover in light theme */
+}
+/* Current page link color */
+.navbar-link.current-page {
+    color: var(--primary-blue);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60%;
+    height: 4px;
+    background-color: var(--primary-blue); /* Blue underline */
+    border-radius: 2px;
+}
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--light-blue);
+}
+.card {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+input, textarea {
+    background-color: var(--card-bg-color); /* Use variable */
+    border: 1px solid var(--border-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.4); /* Blue focus shadow */
+}
+.social-icon {
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--primary-blue);
+}
+
+/* Resume Specific Styles */
+.resume-container {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+@media (min-width: 768px) {
+    .resume-container {
+        flex-direction: row;
+        padding: 3rem;
+    }
+}
+
+.resume-column-left,
+.resume-column-right {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.resume-column-left {
+    border-right: none;
+    padding-right: 0; /* Remove right padding for mobile */
+}
+
+@media (min-width: 768px) {
+    .resume-column-left {
+        border-right: 1px solid var(--border-color); /* Separator line for desktop, use variable */
+        padding-right: 2rem; /* Add back padding for desktop */
+    }
+}
+
+.resume-section-title {
+    font-size: 1.75rem; /* text-3xl equivalent */
+    font-weight: 600; /* font-semibold equivalent */
+    color: var(--primary-blue); /* Blue color for titles */
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.resume-section-title i {
+    color: var(--text-color); /* Icon color, use variable */
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+}
+
+.resume-item-title {
+    font-weight: 600;
+    color: var(--text-color); /* Use variable */
+    font-size: 1.125rem; /* text-lg equivalent */
+    margin-bottom: 0.25rem;
+}
+
+.resume-item-subtitle {
+    color: var(--text-color); /* Use variable */
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item-description {
+    color: var(--text-color); /* Use variable */
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.skill-list, .language-list, .tool-list, .project-list, .certificate-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-item, .language-item, .tool-item, .project-item, .certificate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--text-color); /* Use variable */
+    font-size: 1rem;
+}
+
+.proficiency-dots {
+    display: flex;
+    gap: 0.25rem;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--inactive-dot-color); /* Inactive dot color, use variable */
+}
+.dot.active {
+    background-color: var(--primary-blue); /* Active dot color */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-color); /* Use variable */
+    font-size: 1rem;
+}
+
+.contact-info-item i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+.resume-header-top {
+    background-color: var(--header-bg-color); /* Use variable */
+    padding: 2rem 1rem;
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+.resume-header-top h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 0.5rem;
+}
+
+.resume-header-top p {
+    font-size: 1.2rem;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1.5rem;
+}
+
+.resume-header-top .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.resume-header-top .social-links .social-icon {
+    font-size: 1.8rem;
+}
+
+/* Download Button */
+.download-btn-container {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Theme Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.5rem; /* Small icon size */
+    color: var(--text-color); /* Icon color based on theme */
+    transition: color 0.3s ease;
+    position: absolute; /* Position relative to navbar */
+    right: 1rem; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60; /* Ensure it's above other elements if needed */
+}
+
+/* Mobile Theme Toggle Icon size */
+#theme-toggle-mobile {
+    font-size: 1.8rem; /* Slightly larger icon size for mobile */
+}
+
+@media (min-width: 768px) {
+    #theme-toggle {
+        right: 2rem; /* Adjust for larger screens */
+    }
+}
+
+/* Mobile menu icon color for dark theme */
+.mobile-menu-icon {
+    color: var(--primary-blue);
+}
+
+/* Mobile menu icon color for light theme */
+body.light-theme .mobile-menu-icon {
+    color: var(--primary-blue);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Use variable */
+    margin: auto;
+    padding: 20px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+.close-button {
+    color: var(--text-color); /* Use variable */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Footer specific styles */
+footer {
+    background-color: var(--footer-bg-color); /* Use variable */
+    color: var(--footer-text-color); /* Use variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+footer .social-icon {
+    /* Add margin to social icons in footer */
+    margin: 0 0.75rem; /* 0.75rem horizontal margin */
+    color: var(--footer-text-color); /* Ensure icons match footer text color */
+}

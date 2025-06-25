@@ -1,0 +1,372 @@
+/* Define color palette variables */
+:root {
+    --primary-blue: #007bff; /* Vibrant blue */
+    --light-blue: #66b3ff;    /* Lighter blue for accents/gradients */
+    --dark-blue-shadow: #0056b3; /* Darker blue for shadows/focus */
+
+    /* Dark Theme Colors (Default) */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg-color: #2a2a2a;
+    --header-bg-color: #1a1a1a; /* Used for resume header, but keeping here for consistency */
+    --border-color: #555555;
+    --inactive-dot-color: #555; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #000000; /* Black for dark theme footer */
+    --footer-text-color: #888888; /* Gray-500 equivalent */
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --bg-color: #f0f0f0;
+    --text-color: #333333; /* Dark text for light theme */
+    --card-bg-color: #ffffff;
+    --header-bg-color: #e8e8e8; /* Used for resume header, but keeping here for consistency */
+    --border-color: #cccccc;
+    --inactive-dot-color: #aaaaaa; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #ffffff; /* White for light theme footer */
+    --footer-text-color: #333333; /* Dark text for light theme footer */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+.navbar-link {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to navbar links */
+}
+.navbar-link:hover {
+    color: var(--primary-blue); /* Changed hover color to blue */
+}
+/* Light Theme Specific Navbar Link Color */
+body.light-theme .navbar-link {
+    color: #000000; /* Make text black in light theme */
+}
+/* Light Theme Specific Navbar Link Hover Color */
+body.light-theme .navbar-link:hover {
+    color: var(--primary-blue); /* Make text blue on hover in light theme */
+}
+.hero-image-container {
+    position: relative;
+    width: 250px; /* Adjust size as needed */
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--light-blue), var(--primary-blue)); /* Blue gradient for the border */
+    padding: 5px; /* Border thickness */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6); /* Blue glow effect */
+}
+.hero-image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Placeholder image to mimic the design */
+    background-image: url('https://placehold.co/250x250/333333/FFFFFF?text=Your+Image');
+    background-size: cover;
+    background-position: center;
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60%;
+    height: 4px;
+    background-color: var(--primary-blue); /* Blue underline */
+    border-radius: 2px;
+}
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--light-blue);
+}
+.card {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+input, textarea {
+    background-color: var(--card-bg-color); /* Use variable */
+    border: 1px solid var(--border-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.4); /* Blue focus shadow */
+}
+.social-icon {
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--primary-blue);
+}
+
+/* Styles for the new portfolio layout (not directly used on home, but kept for consistency if copied) */
+.portfolio-grid-item {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease; /* Smooth theme transition */
+}
+.portfolio-grid-item:hover {
+    transform: translateY(-5px);
+}
+.portfolio-img-container {
+    width: 100%;
+    height: 150px; /* Fixed height for image consistency */
+    background-color: var(--card-bg-color); /* Use variable */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-color); /* Use variable */
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+}
+.portfolio-content {
+    padding: 1rem;
+    flex-grow: 1; /* Allows content to take remaining space */
+}
+.portfolio-title {
+    font-weight: 600;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 0.5rem;
+}
+.portfolio-description {
+    font-size: 0.9rem;
+    color: var(--text-color); /* Use variable */
+}
+
+/* Specific styles for the "INDIE FEST" style card */
+.portfolio-indie-fest {
+    background-color: var(--bg-color); /* Darker background for contrast, use variable */
+    border: 1px solid var(--border-color); /* Use variable */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    height: 100%; /* Ensure consistent height in grid */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
+}
+.portfolio-indie-fest:hover {
+    transform: translateY(-5px);
+}
+.portfolio-indie-fest .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+.portfolio-indie-fest .date {
+    font-size: 0.9rem;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1rem;
+}
+.portfolio-indie-fest .image-placeholder {
+    width: 100%;
+    height: 120px;
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.5rem;
+    background-image: url('https://placehold.co/300x120/007bff/FFFFFF?text=Sunset'); /* Example */
+    background-size: cover;
+    background-position: center;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+/* Styles for the 4-grid item */
+.portfolio-four-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    background-color: var(--card-bg-color); /* Use variable */
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    height: 100%; /* Ensure consistent height */
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+.portfolio-four-grid-item {
+    background-color: var(--bg-color); /* Use variable */
+    border-radius: 0.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Fixed height for small grid items */
+    font-size: 0.8rem;
+    color: var(--text-color); /* Use variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* Styles for the "To-Do List" style card */
+.portfolio-todo-list {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+.portfolio-todo-list .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1rem;
+}
+.portfolio-todo-list .list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-color); /* Use variable */
+}
+.portfolio-todo-list .list-item svg {
+    margin-right: 0.5rem;
+    color: var(--primary-blue);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Use variable */
+    margin: auto;
+    padding: 20px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+.close-button {
+    color: var(--text-color); /* Use variable */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Theme Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.5rem; /* Small icon size */
+    color: var(--text-color); /* Icon color based on theme */
+    transition: color 0.3s ease;
+    position: absolute; /* Position relative to navbar */
+    right: 1rem; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60; /* Ensure it's above other elements if needed */
+}
+
+/* Mobile Theme Toggle Icon size */
+#theme-toggle-mobile {
+    font-size: 1.8rem; /* Slightly larger icon size for mobile */
+}
+
+@media (min-width: 768px) {
+    #theme-toggle {
+        right: 2rem; /* Adjust for larger screens */
+    }
+}
+
+/* Mobile menu icon color for dark theme */
+.mobile-menu-icon {
+    color: var(--primary-blue);
+}
+
+/* Specific overrides for elements that had hardcoded Tailwind text/background colors */
+/* These ensure they use the CSS variables for theme switching */
+#home h1,
+#home p:not([style*="color: var(--primary-blue)"]), /* Exclude blue text */
+#about h2,
+#about h3,
+#about ul li,
+#connect h3,
+#connect p {
+    color: var(--text-color);
+    transition: color 0.3s ease; /* Ensure smooth transition */
+}
+
+#about {
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Footer specific styles */
+footer {
+    background-color: var(--footer-bg-color); /* Use variable */
+    color: var(--footer-text-color); /* Use variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+footer .social-icon {
+    /* Add margin to social icons in footer */
+    margin: 0 0.75rem; /* 0.75rem horizontal margin */
+}
+
+/* Styling for the rotating text element */
+#rotating-text {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    font-size: 24px; /* Set font size to 24px */
+    display: inline-block; /* Essential for proper typing animation */
+    /* Remove previous fade animation classes, not needed for typing */
+} 

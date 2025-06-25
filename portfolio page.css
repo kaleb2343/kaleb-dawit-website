@@ -1,0 +1,375 @@
+/* Define color palette variables */
+:root {
+    --primary-blue: #007bff; /* Vibrant blue */
+    --light-blue: #66b3ff;    /* Lighter blue for accents/gradients */
+    --dark-blue-shadow: #0056b3; /* Darker blue for shadows/focus */
+
+    /* Dark Theme Colors (Default) */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg-color: #2a2a2a;
+    --header-bg-color: #1a1a1a; /* Used for resume header, but keeping here for consistency */
+    --border-color: #555555;
+    --inactive-dot-color: #555; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #000000; /* Black for dark theme footer */
+    --footer-text-color: #888888; /* Gray-500 equivalent */
+}
+
+/* Light Theme Colors */
+body.light-theme {
+    --bg-color: #f0f0f0;
+    --text-color: #333333; /* Dark text for light theme */
+    --card-bg-color: #ffffff;
+    --header-bg-color: #e8e8e8; /* Used for resume header, but keeping here for consistency */
+    --border-color: #cccccc;
+    --inactive-dot-color: #aaaaaa; /* Used in resume, keeping here for consistency */
+    --footer-bg-color: #ffffff; /* White for light theme footer */
+    --footer-text-color: #333333; /* Dark text for light theme footer */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+.navbar-link {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to navbar links */
+}
+.navbar-link:hover {
+    color: var(--primary-blue); /* Changed hover color to blue */
+}
+/* Light Theme Specific Navbar Link Color */
+body.light-theme .navbar-link {
+    color: #000000; /* Make text black in light theme */
+}
+/* Light Theme Specific Navbar Link Hover Color */
+body.light-theme .navbar-link:hover {
+    color: var(--primary-blue); /* Make text blue on hover in light theme */
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60%;
+    height: 4px;
+    background-color: var(--primary-blue); /* Blue underline */
+    border-radius: 2px;
+}
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--light-blue);
+}
+.card {
+    background-color: var(--card-bg-color); /* Use variable */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+input, textarea {
+    background-color: var(--card-bg-color); /* Use variable */
+    border: 1px solid var(--border-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.4); /* Blue focus shadow */
+}
+.social-icon {
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--primary-blue);
+}
+
+/* New Project Card Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem; /* Gap between project cards */
+}
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    }
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    height: 100%; /* Ensure cards fill their grid cell */
+    cursor: pointer; /* Indicate clickable */
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image-container {
+    width: 100%;
+    /* Original fixed height: height: 180px; */
+    aspect-ratio: 300 / 180; /* Maintain aspect ratio for responsiveness */
+    height: auto; /* Allow height to adjust based on aspect-ratio */
+    overflow: hidden;
+    background-color: var(--bg-color); /* Placeholder background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of images */
+}
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute; /* Position images on top of each other */
+    opacity: 0; /* Hide by default */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
+}
+.project-image-container img.active-card-image { /* Changed class name to avoid conflict */
+    opacity: 1; /* Show active image */
+}
+
+/* Removed specific background colors for each category */
+
+.project-details {
+    padding: 1.25rem;
+    flex-grow: 1; /* Allows details section to expand */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push tech and links to bottom */
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color); /* Project title in text color, not blue */
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--text-color); /* Project description text color */
+    line-height: 1.4;
+    margin-bottom: 1rem; /* Space before tech stack */
+}
+
+.project-tech {
+    font-size: 0.8rem;
+    color: var(--primary-blue); /* Tech stack in blue */
+    font-weight: 500;
+    margin-top: auto; /* Pushes to the bottom */
+}
+
+.project-links {
+    display: flex;
+    justify-content: flex-end; /* Align icons to the right */
+    gap: 0.75rem;
+    margin-top: 1rem; /* Space above icons */
+}
+.project-links a {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    transition: color 0.2s ease;
+}
+.project-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Theme Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.5rem; /* Small icon size */
+    color: var(--text-color); /* Icon color based on theme */
+    transition: color 0.3s ease;
+    position: absolute; /* Position relative to navbar */
+    right: 1rem; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60; /* Ensure it's above other elements if needed */
+}
+@media (min-width: 768px) {
+    #theme-toggle {
+        right: 2rem; /* Adjust for larger screens */
+    }
+}
+
+/* Footer specific styles */
+footer {
+    background-color: var(--footer-bg-color); /* Use variable */
+    color: var(--footer-text-color); /* Use variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+/* Removed: footer .social-icon { margin: 0 0.75rem; } */
+
+
+/* Specific text color for "My Creative" in light theme */
+body.light-theme .creative-text {
+    color: #333333; /* Black in light theme */
+}
+body.dark-theme .creative-text {
+    color: #e0e0e0; /* White in dark theme */
+}
+
+.portfolio-section-heading {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1rem; /* Adjusted margin */
+    text-align: left; /* Align to left */
+    transition: color 0.3s ease;
+}
+/* Ensures portfolio section icons are always blue */
+.portfolio-section-heading i {
+    color: var(--primary-blue) !important; /* Using !important to ensure override */
+}
+
+.portfolio-section-description {
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 2.5rem;
+    text-align: left; /* Align to left */
+    font-size: 1.125rem; /* text-lg */
+    transition: color 0.3s ease;
+}
+/* Modal styles - updated to remove close button and OK button */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg-color); /* Use variable */
+    margin: auto;
+    padding: 20px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+/* Lightbox specific styles */
+.lightbox-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Higher than other modals */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column; /* Stack image and counter */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-image {
+    max-width: 85%; /* Slightly smaller */
+    max-height: 85%; /* Slightly smaller */
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6); /* Blue glow */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 50px;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+    transition: color 0.3s ease;
+    z-index: 1001;
+}
+
+.lightbox-nav:hover {
+    color: var(--primary-blue);
+}
+
+.lightbox-prev {
+    left: 15px;
+}
+
+.lightbox-next {
+    right: 15px;
+}
+
+.lightbox-counter {
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* --- NEW ADDITION FOR LIGHTBOX CAPTION --- */
+.lightbox-caption {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-top: 15px; /* Space above the counter */
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    padding: 0 20px; /* Add some padding for better readability */
+}
