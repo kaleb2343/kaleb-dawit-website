@@ -103,16 +103,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     function openLightbox(images, startIndex = 0) {
-        currentImages = images;
-        currentIndex = startIndex;
-        if (currentImages.length > 0) {
-            lightboxImage.src = currentImages[currentIndex].src; // Access .src property
-            lightboxCaption.textContent = currentImages[currentIndex].caption; // Set the caption text
-            lightboxModal.style.display = 'flex';
-            updateLightboxNav();
-            updateLightboxCounter();
-        }
+    currentImages = images;
+    currentIndex = startIndex;
+    if (currentImages.length > 0) {
+        // CORRECTED: Added .src here as your images are objects
+        lightboxImage.src = currentImages[currentIndex].src;
+        lightboxModal.style.display = 'flex';
+        updateLightboxNav();
+        updateLightboxCounter();
+
+        // Preload next and previous images
+        const nextIndex = (currentIndex + 1) % currentImages.length;
+        const prevIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+
+        // Create new Image objects to trigger loading
+        const preloadNext = new Image();
+        preloadNext.src = currentImages[nextIndex].src;
+        
+        const preloadPrev = new Image();
+        preloadPrev.src = currentImages[prevIndex].src;
     }
+}
 
     function closeLightbox() {
         lightboxModal.style.display = 'none';
