@@ -59,6 +59,7 @@ body.light-theme .navbar-link:hover {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 123, 255, 0.6); /* Blue glow effect */
+     margin-top: 30px;
 }
 .hero-image {
     border-radius: 50%;
