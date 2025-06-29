@@ -1,10 +1,12 @@
 {
-  "dependencies": {
-    "clean-css-cli": "^5.6.3",
-    "html-minifier-terser": "^7.2.0",
-    "terser": "^5.43.1"
-  },
   "scripts": {
     "build": "rm -rf dist && mkdir dist && npx terser \"blog page.js\" -o \"dist/blog page.min.js\" && npx terser \"home page.js\" -o \"dist/home page.min.js\" && npx terser \"portfolio page.js\" -o \"dist/portfolio page.min.js\" && npx terser \"resume page.js\" -o \"dist/resume page.min.js\" && npx cleancss \"blog page.css\" -o \"dist/blog page.min.css\" && npx cleancss \"home page.css\" -o \"dist/home page.min.css\" && npx cleancss \"portfolio page.css\" -o \"dist/portfolio page.min.css\" && npx cleancss \"resume page.css\" -o \"dist/resume page.min.css\" && npx html-minifier-terser blog.html -o dist/blog.min.html --minify-css true --minify-js true --remove-comments --collapse-whitespace && npx html-minifier-terser \"home page.html\" -o dist/home.min.html --minify-css true --minify-js true --remove-comments --collapse-whitespace && npx html-minifier-terser index.html -o dist/index.min.html --minify-css true --minify-js true --remove-comments --collapse-whitespace && npx html-minifier-terser portfolio.html -o dist/portfolio.min.html --minify-css true --minify-js true --remove-comments --collapse-whitespace && npx html-minifier-terser resume.html -o dist/resume.min.html --minify-css true --minify-js true --remove-comments --collapse-whitespace && cp -r assets dist/assets && cp favicon-32x32.png dist/ && cp apple-touch-icon.png dist/ && cp favicon-16x16.png dist/ && cp site.webmanifest dist/ && cp android-chrome-192x192.png dist/ && cp android-chrome-512x512.png dist/ && cp favicon.ico dist/"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "cpy-cli": "^5.0.0",
+    "html-minifier-terser": "^7.2.0",
+    "rimraf": "^6.0.1",
+    "terser": "^5.43.1"
   }
 }
