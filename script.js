@@ -66,12 +66,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 observer.observe(statsRow);
 
+// An image counts as ready once its real file has finished loading
+function isLoaded(img) { return !img.dataset.src && img.complete && img.naturalWidth > 1; }
+
+// Second images are fetched shortly after the page finishes loading, so the first view stays fast
+function loadDeferredImages() {
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+  });
+}
+if (document.readyState === 'complete') { setTimeout(loadDeferredImages, 1200); }
+else { window.addEventListener('load', () => setTimeout(loadDeferredImages, 1200)); }
+
 // Development day/night swap
 document.querySelectorAll('.swap-img').forEach(wrap => {
   const imgA = wrap.querySelector('.swap-a');
   const imgB = wrap.querySelector('.swap-b');
   let showingA = true;
   setInterval(() => {
+    const next = showingA ? imgB : imgA;
+    if (!isLoaded(next)) return;
     showingA = !showingA;
     imgA.classList.toggle('is-visible', showingA);
     imgB.classList.toggle('is-visible', !showingA);
@@ -94,8 +109,7 @@ document.querySelectorAll('.cycle-wrap').forEach(wrap => {
     ['cycle-bg', 'cycle-img'].forEach(cls => {
       list.forEach((src, idx) => {
         const img = document.createElement('img');
-        img.src = src;
-        img.loading = 'lazy';
+        if (idx === 0) { img.src = src; img.loading = 'lazy'; } else { img.dataset.src = src; }
         img.draggable = false;
         img.decoding = 'async';
         if (cls === 'cycle-bg') { img.alt = ''; img.setAttribute('aria-hidden', 'true'); }
@@ -110,9 +124,11 @@ document.querySelectorAll('.cycle-wrap').forEach(wrap => {
   if (fg.length < 2) return;
   let i = 0;
   setInterval(() => {
+    const n = (i + 1) % fg.length;
+    if (!isLoaded(fg[n]) || !isLoaded(bg[n])) return;
     fg[i].classList.remove('is-visible');
     bg[i].classList.remove('is-visible');
-    i = (i + 1) % fg.length;
+    i = n;
     fg[i].classList.add('is-visible');
     bg[i].classList.add('is-visible');
   }, 3000);
