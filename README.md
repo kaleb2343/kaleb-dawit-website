@@ -23,11 +23,10 @@ A fast, accessible, one-page portfolio for a graphic designer, digital marketer 
 ![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 ![No framework](https://img.shields.io/badge/Framework-none-22c55e?style=flat-square)
 
-![PageSpeed desktop](https://img.shields.io/badge/PageSpeed%20desktop-99-0cce6b?style=flat-square&logo=googlechrome&logoColor=white)
-![PageSpeed mobile](https://img.shields.io/badge/PageSpeed%20mobile-98-0cce6b?style=flat-square&logo=googlechrome&logoColor=white)
+![PageSpeed desktop](https://img.shields.io/badge/PageSpeed%20desktop-100-0cce6b?style=flat-square&logo=googlechrome&logoColor=white)
+![PageSpeed mobile](https://img.shields.io/badge/PageSpeed%20mobile-93-0cce6b?style=flat-square&logo=googlechrome&logoColor=white)
 ![Security headers](https://img.shields.io/badge/Security%20headers-A%2B-0cce6b?style=flat-square&logo=letsencrypt&logoColor=white)
 ![WAVE](https://img.shields.io/badge/WAVE%20errors-0-0cce6b?style=flat-square)
-![W3C](https://img.shields.io/badge/W3C%20HTML-valid-0cce6b?style=flat-square&logo=w3c&logoColor=white)
 
 <br>
 
@@ -70,11 +69,10 @@ Measured in October 2026.
 
 | Check | Result |
 | --- | :-: |
-| ⚡ Google PageSpeed, desktop | **99** performance, **100** accessibility, **100** best practices, **100** SEO |
-| 📱 Google PageSpeed, mobile | **98** performance, **100** accessibility, **100** best practices, **100** SEO |
+| ⚡ Google PageSpeed, desktop | **100** performance, **100** accessibility, **100** best practices, **100** SEO |
+| 📱 Google PageSpeed, mobile | **93** performance, **100** accessibility, **100** best practices, **100** SEO |
 | 🛡️ Security headers (Snyk) | **A+** |
 | ♿ WAVE accessibility | **0** errors, **0** contrast errors |
-| ✅ W3C HTML validator | No errors or warnings |
 
 **How it gets there**
 
