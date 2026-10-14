@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/portfolio.html", "destination": "/#portfolio", "permanent": true },
+    { "source": "/portfolio", "destination": "/#portfolio", "permanent": true },
+    { "source": "/resume.html", "destination": "/#resume", "permanent": true },
+    { "source": "/resume", "destination": "/#resume", "permanent": true },
+    { "source": "/blog.html", "destination": "/", "permanent": true },
+    { "source": "/blog", "destination": "/", "permanent": true }
+  ]
+}
