@@ -141,12 +141,6 @@ document.querySelectorAll('.gallery-trigger').forEach(btn => {
     e.preventDefault();
     openLightbox(btn.getAttribute('data-group'));
   });
-  btn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openLightbox(btn.getAttribute('data-group'));
-    }
-  });
 });
 
 document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('open'));
