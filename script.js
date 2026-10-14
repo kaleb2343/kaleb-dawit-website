@@ -87,6 +87,9 @@ document.querySelectorAll('.cycle-wrap').forEach(wrap => {
         img.src = src;
         img.loading = 'lazy';
         img.draggable = false;
+        img.decoding = 'async';
+        if (cls === 'cycle-bg') { img.alt = ''; img.setAttribute('aria-hidden', 'true'); }
+        else { const h4 = wrap.closest('.work-card') && wrap.closest('.work-card').querySelector('h4'); img.alt = (h4 ? h4.textContent : 'Project') + ' ' + (idx + 1); }
         img.className = cls + (idx === 0 ? ' is-visible' : '');
         wrap.appendChild(img);
       });

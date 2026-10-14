@@ -6,7 +6,8 @@
 <title>Kaleb Dawit | Graphic Designer, Digital Marketer & Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" /></noscript>
 <meta name="description" content="Kaleb Dawit is a graphic designer, digital marketer and developer. See his projects, resume and get in touch." />
 <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
 <link rel="icon" type="image/x-icon" href="assets/logos/favicon.ico" sizes="any" />
@@ -40,7 +41,7 @@
       "@id": "https://kalebdawit.vercel.app/#person",
       "name": "Kaleb Dawit",
       "url": "https://kalebdawit.vercel.app/",
-      "image": "https://kalebdawit.vercel.app/assets/images/hero-image.png",
+      "image": "https://kalebdawit.vercel.app/assets/images/hero-image.webp",
       "jobTitle": "Graphic Designer, Digital Marketer and Developer",
       "description": "Kaleb Dawit is a graphic designer, digital marketer and developer who builds brands from the first logo to the website and the search results.",
       "knowsAbout": ["Graphic Design", "Digital Marketing", "Web Development", "SEO"],
@@ -71,6 +72,7 @@
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
 </header>
 
+<main>
 <section class="hero-black">
   <h1>DESIGN.<br>MARKET.<br>BUILD.</h1>
   <div class="cta-center">
@@ -80,7 +82,7 @@
 
 <section class="about" id="about">
   <div class="about-photo">
-    <img src="assets/images/hero-image.png" alt="Kaleb Dawit avatar" />
+    <img src="assets/images/hero-image.webp" alt="Kaleb Dawit avatar" width="300" height="300" fetchpriority="high" decoding="async" />
   </div>
   <div class="about-text">
     <p class="intro-line">Hello World, I'm <strong>Kaleb Dawit</strong> 👋</p>
@@ -116,22 +118,22 @@
     <div class="work-grid">
       <a href="https://merafe-stories.netlify.app/" target="_blank" rel="noopener" class="work-card">
         <div class="work-img swap-img">
-          <img src="assets/images/merafe-night.png" alt="Merafe Stories - dark theme" class="swap-a is-visible" />
-          <img src="assets/images/merafe-day.png" alt="Merafe Stories - light theme" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/merafe-night.png" alt="Merafe Stories - dark theme" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/merafe-day.png" alt="Merafe Stories - light theme" class="swap-b" />
         </div>
         <div class="work-info"><h4>Merafe Stories</h4><p>Responsive e-book web app</p><span class="work-btn">Visit site →</span></div>
       </a>
       <a href="https://techbytes-news.netlify.app/" target="_blank" rel="noopener" class="work-card">
         <div class="work-img swap-img">
-          <img src="assets/images/techbytes-night.png" alt="Tech Bytes - dark theme" class="swap-a is-visible" />
-          <img src="assets/images/techbytes-day.png" alt="Tech Bytes - light theme" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/techbytes-night.png" alt="Tech Bytes - dark theme" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/techbytes-day.png" alt="Tech Bytes - light theme" class="swap-b" />
         </div>
         <div class="work-info"><h4>Tech Bytes</h4><p>Retro-themed tech news platform</p><span class="work-btn">Visit site →</span></div>
       </a>
       <a href="https://medresha.vercel.app/" target="_blank" rel="noopener" class="work-card">
         <div class="work-img swap-img">
-          <img src="assets/images/medresha-night.png" alt="Medresha - dark theme" class="swap-a is-visible" />
-          <img src="assets/images/medresha-day.png" alt="Medresha - light theme" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/medresha-night.webp" alt="Medresha - dark theme" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/medresha-day.webp" alt="Medresha - light theme" class="swap-b" />
         </div>
         <div class="work-info"><h4>Medresha</h4><p>Android app for saving exact doors</p><span class="work-btn">Visit site →</span></div>
       </a>
@@ -144,36 +146,36 @@
 
       <button type="button" class="work-card gallery-trigger" data-group="logos">
         <div class="work-img work-img-contain cycle-wrap" data-group="logos">
-          <img src="assets/images/brand-amde.webp" loading="lazy" draggable="false" class="cycle-bg is-visible" />
-          <img src="assets/images/logo-hiruy.png" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/logo-set.webp" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/brand-amde.webp" loading="lazy" draggable="false" class="cycle-img is-visible" />
-          <img src="assets/images/logo-hiruy.png" loading="lazy" draggable="false" class="cycle-img" />
-          <img src="assets/images/logo-set.webp" loading="lazy" draggable="false" class="cycle-img" />
+          <img src="assets/images/brand-amde.webp" loading="lazy" draggable="false" class="cycle-bg is-visible" alt="" />
+          <img src="assets/images/logo-hiruy.png" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/logo-set.webp" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/brand-amde.webp" loading="lazy" draggable="false" class="cycle-img is-visible" alt="" />
+          <img src="assets/images/logo-hiruy.png" loading="lazy" draggable="false" class="cycle-img" alt="" />
+          <img src="assets/images/logo-set.webp" loading="lazy" draggable="false" class="cycle-img" alt="" />
         </div>
         <div class="work-info"><h4>Logo & Brand Identity</h4><p>Logo design and brand packages</p><span class="work-btn">Click to view →</span></div>
       </button>
 
       <button type="button" class="work-card gallery-trigger" data-group="posters">
         <div class="work-img work-img-contain cycle-wrap" data-group="posters">
-          <img src="assets/images/poster-adane.webp" loading="lazy" draggable="false" class="cycle-bg is-visible" />
-          <img src="assets/images/poster-ethiorace.webp" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/poster-axum.jpg" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/poster-adane.webp" loading="lazy" draggable="false" class="cycle-img is-visible" />
-          <img src="assets/images/poster-ethiorace.webp" loading="lazy" draggable="false" class="cycle-img" />
-          <img src="assets/images/poster-axum.jpg" loading="lazy" draggable="false" class="cycle-img" />
+          <img src="assets/images/poster-adane.webp" loading="lazy" draggable="false" class="cycle-bg is-visible" alt="" />
+          <img src="assets/images/poster-ethiorace.webp" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/poster-axum.jpg" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/poster-adane.webp" loading="lazy" draggable="false" class="cycle-img is-visible" alt="" />
+          <img src="assets/images/poster-ethiorace.webp" loading="lazy" draggable="false" class="cycle-img" alt="" />
+          <img src="assets/images/poster-axum.jpg" loading="lazy" draggable="false" class="cycle-img" alt="" />
         </div>
         <div class="work-info"><h4>Poster Designs</h4><p>Event and promotional posters</p><span class="work-btn">Click to view →</span></div>
       </button>
 
       <button type="button" class="work-card gallery-trigger" data-group="social">
         <div class="work-img work-img-contain cycle-wrap" data-group="social">
-          <img src="assets/images/social-buna.png" loading="lazy" draggable="false" class="cycle-bg is-visible" />
-          <img src="assets/images/social-tewlede.jpg" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/social-dile.jpg" loading="lazy" draggable="false" class="cycle-bg" />
-          <img src="assets/images/social-buna.png" loading="lazy" draggable="false" class="cycle-img is-visible" />
-          <img src="assets/images/social-tewlede.jpg" loading="lazy" draggable="false" class="cycle-img" />
-          <img src="assets/images/social-dile.jpg" loading="lazy" draggable="false" class="cycle-img" />
+          <img src="assets/images/social-buna.png" loading="lazy" draggable="false" class="cycle-bg is-visible" alt="" />
+          <img src="assets/images/social-tewlede.jpg" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/social-dile.jpg" loading="lazy" draggable="false" class="cycle-bg" alt="" />
+          <img src="assets/images/social-buna.png" loading="lazy" draggable="false" class="cycle-img is-visible" alt="" />
+          <img src="assets/images/social-tewlede.jpg" loading="lazy" draggable="false" class="cycle-img" alt="" />
+          <img src="assets/images/social-dile.jpg" loading="lazy" draggable="false" class="cycle-img" alt="" />
         </div>
         <div class="work-info"><h4>Social Media Graphics</h4><p>Visual content for campaigns</p><span class="work-btn">Click to view →</span></div>
       </button>
@@ -186,22 +188,22 @@
     <div class="work-grid">
       <div class="work-card static seo-card">
         <div class="work-img swap-img">
-          <img src="assets/images/seo-search-console.png" alt="Google Search Console performance graph for Medresha over 3 months" class="swap-a is-visible" />
-          <img src="assets/images/seo-sitemap.png" alt="Google Search Console sitemap processed successfully" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/seo-search-console.png" alt="Google Search Console performance graph for Medresha over 3 months" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/seo-sitemap.png" alt="Google Search Console sitemap processed successfully" class="swap-b" />
         </div>
         <div class="work-info"><h4>SEO Setup</h4><p>Search Console results and sitemap for Medresha</p></div>
       </div>
       <a href="https://eleroiddrinks.godaddysites.com/" target="_blank" rel="noopener" class="work-card">
         <div class="work-img swap-img">
-          <img src="assets/images/eleroid-home.png" alt="Eleroid Drinks website - home page" class="swap-a is-visible" />
-          <img src="assets/images/eleroid-about.png" alt="Eleroid Drinks website - about section" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/eleroid-home.webp" alt="Eleroid Drinks website - home page" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/eleroid-about.webp" alt="Eleroid Drinks website - about section" class="swap-b" />
         </div>
         <div class="work-info"><h4>Eleroid Drinks Website</h4><p>My first website, built with GoDaddy</p><span class="work-btn">Visit site →</span></div>
       </a>
       <div class="work-card static seo-card">
         <div class="work-img swap-img">
-          <img src="assets/images/content-calendar.png" alt="30-day social media content calendar" class="swap-a is-visible" />
-          <img src="assets/images/content-strategy.png" alt="One-month content strategy for a beauty salon" class="swap-b" />
+          <img loading="lazy" decoding="async" src="assets/images/content-calendar.png" alt="30-day social media content calendar" class="swap-a is-visible" />
+          <img loading="lazy" decoding="async" src="assets/images/content-strategy.png" alt="One-month content strategy for a beauty salon" class="swap-b" />
         </div>
         <div class="work-info"><h4>Content Strategy</h4><p>Sample content plans and calendars</p></div>
       </div>
@@ -251,6 +253,7 @@
       </a>
   </div>
 </section>
+</main>
 
 <footer class="site-footer">
   <p>© 2026 Kaleb Dawit. Creative Technologies.</p>
@@ -258,23 +261,23 @@
 
 <div id="group-data" style="display:none">
   <div data-group="logos">
-    <img src="assets/images/brand-amde.webp" />
-    <img src="assets/images/logo-hiruy.png" />
-    <img src="assets/images/logo-set.webp" />
-    <img src="assets/images/brand-amde-mockup.webp" />
+    <img src="assets/images/brand-amde.webp" alt="" loading="lazy" />
+    <img src="assets/images/logo-hiruy.png" alt="" loading="lazy" />
+    <img src="assets/images/logo-set.webp" alt="" loading="lazy" />
+    <img src="assets/images/brand-amde-mockup.webp" alt="" loading="lazy" />
   </div>
   <div data-group="posters">
-    <img src="assets/images/poster-adane.webp" />
-    <img src="assets/images/poster-axum.jpg" />
-    <img src="assets/images/poster-ethiorace.webp" />
-    <img src="assets/images/poster-ethiopia.png" />
-    <img src="assets/images/poster-nesta.png" />
+    <img src="assets/images/poster-adane.webp" alt="" loading="lazy" />
+    <img src="assets/images/poster-axum.jpg" alt="" loading="lazy" />
+    <img src="assets/images/poster-ethiorace.webp" alt="" loading="lazy" />
+    <img src="assets/images/poster-ethiopia.webp" alt="" loading="lazy" />
+    <img src="assets/images/poster-nesta.png" alt="" loading="lazy" />
   </div>
   <div data-group="social">
-    <img src="assets/images/social-buna.png" />
-    <img src="assets/images/social-dile.jpg" />
-    <img src="assets/images/social-theatre.webp" />
-    <img src="assets/images/social-tewlede.jpg" />
+    <img src="assets/images/social-buna.png" alt="" loading="lazy" />
+    <img src="assets/images/social-dile.jpg" alt="" loading="lazy" />
+    <img src="assets/images/social-theatre.webp" alt="" loading="lazy" />
+    <img src="assets/images/social-tewlede.jpg" alt="" loading="lazy" />
   </div>
 </div>
 
