@@ -1,3 +1,13 @@
+// Load Google Fonts without blocking the first paint
+const gFonts = document.getElementById('gfonts');
+if (gFonts) {
+  if (gFonts.sheet) { gFonts.media = 'all'; }
+  else { gFonts.addEventListener('load', () => { gFonts.media = 'all'; }); }
+}
+
+// Right-click disabled
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
 const phrases = ["Graphic Designer.", "Digital Marketer.", "Developer."];
 const el = document.getElementById('rotating-text');
 let p = 0, c = 0, deleting = false;

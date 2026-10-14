@@ -298,3 +298,5 @@ html[data-theme="day"] .go-up:hover { background: #142150; }
   .about { flex-direction: column; text-align: center; padding: 1.5rem 6% 4rem; }
   .about-tags, .stats-row { justify-content: center; }
 }
+
+.hidden-data { display: none; }
