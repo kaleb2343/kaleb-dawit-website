@@ -272,6 +272,12 @@ html[data-theme="day"] .site-footer { color: #3a4470; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 .lb-prev:hover, .lb-next:hover { background: rgba(0,0,0,0.85); }
+@media (max-width: 700px) {
+  .lightbox img { max-height: 76%; }
+  .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; }
+  .lb-prev { left: calc(50% - 64px); }
+  .lb-next { right: calc(50% - 64px); }
+}
 
 .go-up {
   position: fixed; bottom: 24px; right: 24px; z-index: 50;
