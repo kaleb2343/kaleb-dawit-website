@@ -141,6 +141,7 @@ Vercel project settings: **Framework Preset:** Other, **Output Directory:** `.`
 </div>
 
 ---
+Built with care 
 
 <div align="center">
 
